@@ -1,0 +1,1 @@
+This is a simple portfolio website, nothing too crazy. I'm proud of this because I made it myself, with little to no AI involved.
