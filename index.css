@@ -91,6 +91,25 @@ body {
     margin-bottom: 10px;
 }
 
+.content-2 {
+    display: flex;          /* Aligns image and text-div side-by-side */
+    align-items: center;    /* Vertically centers the image and text */
+    gap: 40px;              /* Adds space between the image and text */
+    padding: 20px;
+    max-width: 1000px;      /* Optional: keeps content from stretching too wide */
+    margin: 0 auto;         /* Centers the container on the page */
+}
+
+.my-img {
+    width: 300px;           /* Adjust size as needed */
+    height: auto;
+    border-radius: 10px;    /* Optional: rounds the corners */
+}
+
+.about-text {
+    flex: 1;                /* Makes the text container take up remaining space */
+}
+
 .social-links a {
     font-family: 'Merienda', cursive;
     margin: 0 10px;
