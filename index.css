@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Ceviche+One&family=Merienda:wght@300..900&display=swap');
 
-/* 1. Theme Variables - Your exact current colors */
+/* 1. Theme Variables */
 :root {
     --bg-color: #f8f9fa;
     --text-color: #2d3436;
@@ -13,34 +13,26 @@
 
 /* 2.Updated Dark Mode Values */
 [data-theme="dark"] {
-    /* A deep "Midnight" blue-grey for a professional look */
     --bg-color: #0f172a;      
     --text-color: #f1f2f6;    
-    
-    /* Slightly lighter than background to make the navbar/cards "pop" */
     --nav-bg: #1e293b;        
     --nav-links: #94a3b8;     
-    
-    /* A vibrant "Electric Blue" that glows against dark backgrounds */
     --accent: #38bdf8;        
-    
-    /* Darker than the body to ground the page */
     --footer-bg: #0b1120;     
     --profile-border: #334155;
-    
-    /* Added variable for the cards to fix the light-grey issue */
     --card-bg: #1e293b;       
 }
 
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Ensures padding doesn't break width */
 }
 
 body {
     font-family: 'Merienda', cursive;
-    background-color: var(--bg-color); /* Variable used here */
-    color: var(--text-color);           /* Variable used here */
+    background-color: var(--bg-color);
+    color: var(--text-color);
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -48,7 +40,7 @@ body {
 .navbar {
     display: flex;
     justify-content: center;
-    align-items: center; /* Added for icon alignment */
+    align-items: center;
     gap: 30px;
     padding: 20px 0;
     background-color: var(--nav-bg);
@@ -63,7 +55,6 @@ body {
     text-decoration: none;
 }
 
-/* Toggle Button Styling - Clean & Minimal */
 #theme-toggle {
     background: none;
     border: none;
@@ -96,32 +87,19 @@ h1 {
 }
 
 .cards {
-    background-color: #f1f1f1;
-    padding: 16px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    text-align: center;
-    flex: 1; /* Allows cards to grow and shrink to fill the space */
-    min-width: 200px; /* Ensures a minimum width before wrapping */
-}
-
-.cards {
-    background-color: var(--card-bg, #f1f1f1); /* Uses dark color if theme is dark, else light grey */
+    background-color: var(--card-bg, #f1f1f1);
     padding: 16px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     text-align: center;
     flex: 1;
-    min-width: 200px;
-    border-radius: 8px; /* Optional: adds a modern touch */
+    min-width: 250px; /* Slightly increased for better mobile fit */
+    border-radius: 8px;
 }
 
 .cards img {
     width: 100%;
     height: auto;
     border-radius: 5px;
-}
-
-.cards a:hover {
-    background-color: darken(var(--accent), 10%);
 }
 
 .profile_pic {
@@ -137,33 +115,30 @@ h1 {
 
 .content {
     text-align: center;
+    padding: 0 20px;
 }
 
 .content h1 {
-    font-family: 'Ceviche One', system-ui;
-    font-size: 4.5rem;
-    color: var(--text-color);
-    letter-spacing: 2px;
-    margin-bottom: 10px;
+    font-size: 3.5rem; /* Slightly smaller for general fit */
 }
 
 .content-2 {
-    display: flex;          /* Aligns image and text-div side-by-side */
-    align-items: center;    /* Vertically centers the image and text */
-    gap: 40px;              /* Adds space between the image and text */
-    padding: 20px;
-    max-width: 1000px;      /* Optional: keeps content from stretching too wide */
-    margin: 0 auto;         /* Centers the container on the page */
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .my-img {
-    width: 300px;           /* Adjust size as needed */
+    width: 300px;
     height: auto;
-    border-radius: 10px;    /* Optional: rounds the corners */
+    border-radius: 10px;
 }
 
 .about-text {
-    flex: 1;                /* Makes the text container take up remaining space */
+    flex: 1;
 }
 
 .social-links a {
@@ -180,4 +155,58 @@ footer {
     background-color: var(--footer-bg);
     text-align: center;
     font-size: 0.9rem;
+}
+
+/* --- MOBILE RESPONSIVENESS ADDITIONS --- */
+
+@media (max-width: 768px) {
+    /* Navbar: Reduce gap and font size */
+    .navbar {
+        gap: 15px;
+        padding: 15px 10px;
+    }
+
+    .navbar a {
+        font-size: 0.9rem;
+    }
+
+    /* Headings: Shrink large titles so they don't overflow */
+    h1, .content h1 {
+        font-size: 2.5rem;
+        padding: 0 10px;
+    }
+
+    /* About Page (content-2): Stack image on top of text */
+    .content-2 {
+        flex-direction: column; /* Switches from side-by-side to vertical */
+        text-align: center;
+        gap: 20px;
+    }
+
+    .my-img {
+        width: 80%; /* Shrink image to fit screen width */
+        max-width: 250px;
+    }
+
+    .about-text {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    /* Projects: Ensure cards take full width on small screens */
+    .card-container {
+        padding: 10px;
+    }
+
+    .cards {
+        min-width: 100%; /* One card per row on mobile */
+    }
+
+    /* Footer: Adjust spacing */
+    .social-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+    }
 }
